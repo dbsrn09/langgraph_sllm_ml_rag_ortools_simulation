@@ -1,0 +1,78 @@
+# --- Python ---
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+.tox/
+*.egg-info/
+.eggs/
+dist/
+build/
+*.egg
+
+# 가상환경
+.venv/
+venv/
+env/
+
+# --- Node / Frontend (Vite 등) ---
+**/node_modules/
+**/.vite/
+**/dist/
+*.tsbuildinfo
+
+# --- 비밀·환경 변수 (예시 파일만 추적) ---
+**/.env
+**/.env.*
+!**/.env.example
+
+# --- 데이터 (용량 큰 CSV·원본 등) ---
+back/app/data/processed/
+back/app/data/raw/*.csv
+back/app/data/raw/*.xlsx
+# 루트/구경로 호환
+data/
+
+# --- 로컬 DB 파일 (전역) ---
+*.duckdb
+*.db
+*.sqlite
+*.sqlite3
+*.sqlite-journal
+db/*.duckdb
+db/*.db
+
+# --- RAG 인덱스 (재생성 가능) ---
+back/app/rag/index/
+rag/index/
+
+# --- ML 아티팩트 (joblib 등) ---
+back/app/modellearn/artifacts/
+*.joblib
+
+# --- sLLM 학습·모델 캐시 (구/신 경로) ---
+sllm/learndata/output/
+sllm/finetuning/text2sql_train.jsonl
+sllm/finetuning/text2sql-lora/
+sllm/huggingface_llama/models/
+back/app/sllm/learndata/output/
+back/app/sllm/finetuning/text2sql_train.jsonl
+back/app/sllm/finetuning/text2sql-lora/
+back/app/sllm/huggingface_llama/models/
+
+# --- 무거운 모델 파일 (예: GGUF) ---
+**/*.gguf
+
+# --- Jupyter ---
+.ipynb_checkpoints/
+
+# --- OS ---
+.DS_Store
+Thumbs.db
+Desktop.ini
