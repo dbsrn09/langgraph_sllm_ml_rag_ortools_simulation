@@ -1,0 +1,81 @@
+{
+    "newChat": "New Chat",
+    "chatWelcome": "Ask me anything about your data",
+    "all": "All",
+    "today": "Today",
+    "yesterday": "Yesterday",
+    "previous": "Previous",
+    "noResult": "No search results.",
+    "thinking": "Thinking...",
+    "typeYourMessage": "Type your megssage...",
+    "placeholder": {
+        "searchConver": "Search conversations",
+        "input": "Ask us any questions you have about your data..."
+    },
+    "tooltip": {
+        "dataAgent": "Data Agent — Chat in this session",
+        "reportAgent": "Report Agent — Reports for this session"
+    },
+    "chatNav": {
+        "newChat": "New Chat",
+        "search": "Search",
+        "recentChat": "Recent Chat",
+        "rename": "Rename",
+        "delete": "Delete",
+        "chat": "Chats"
+    },
+    "powerBi": {
+        "welcome": "Ask me anything about your report",
+        "loading": "Loading Power BI report...",
+        "tab": {
+            "report": "Report",
+            "chat": "Chat Agent"
+        }
+    },
+    "chatConversation": {
+        "copyAnswer": "Copy answer",
+        "copiedAnswer": "Your answer has been copied",
+        "copySQL": "SQL Copy",
+        "copiedSQL": "SQL copied",
+        "viewFullReport": "View Full Report",
+        "saveToReport": "Save to Report",
+        "tab": {
+            "dataAgent": "Data Agent",
+            "reportAgent": "Report Agent"
+        }
+    },
+    "chatSource": {
+        "generatedSQL": "Generated SQL",
+        "view": "View the analysis process and data"
+    },
+    "suggestion": {
+        "questions": "Suggested Questions",
+        "all": "View all recommended questions"
+    },
+    "reportAgent": {
+        "failedChart":"No metric available to render chart.",
+        "search": "Search saved reports...",
+        "title": "Report Agent",
+        "history": "History",
+        "regenerate": "Regenerate",
+        "share": "Share",
+        "export": "Export",
+        "exportCSV": "Export CSV",
+        "exportPNG": "Export PNG",
+        "chart": "This Chat (Auto)",
+        "workspace": "Saved (Workspace)",
+        "version": {
+            "history": "Version History",
+            "description": "View and restore previous versions of this analysis.",
+            "restore": "Restore this version",
+            "analysis": "Analysis",
+            "snapshot": "Snapshot",
+            "saved": "Saved to Workspace."
+        },
+        "shared":{
+            "copied":"Link copied to clipboard",
+            "copy":"Copy Link",
+            "title":"Share this analysis"
+        }
+    }
+}

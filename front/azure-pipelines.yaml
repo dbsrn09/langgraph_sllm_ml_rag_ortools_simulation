@@ -1,0 +1,105 @@
+trigger:
+  - main
+
+variables:
+  azureServiceConnection: "data-agent-connection"
+  resourceGroupName: "CS_RAG_RG"
+  acrName: "dataagentuiacr"
+  webAppName: "mcloud-dataagent"
+  imageRepository: "data-agent-ui"
+  dockerfilePath: "$(Build.SourcesDirectory)/Dockerfile"
+  tag: "$(Build.BuildId)"
+
+pool:
+  vmImage: "ubuntu-latest"
+
+stages:
+
+# ---------------- BUILD STAGE ----------------
+- stage: Build
+  displayName: "Build and Push Image"
+  jobs:
+    - job: Build
+      displayName: "Build Docker Image"
+      steps:
+
+        - task: AzureCLI@2
+          displayName: "Build and Push to ACR"
+          inputs:
+            azureSubscription: "$(azureServiceConnection)"
+            scriptType: "bash"
+            scriptLocation: "inlineScript"
+            workingDirectory: "$(Build.SourcesDirectory)"
+            inlineScript: |
+              echo "Logging into Azure Container Registry..."
+              az acr login --name $(acrName)
+
+              echo "Building Docker image..."
+              docker build \
+                -t $(acrName).azurecr.io/$(imageRepository):$(tag) \
+                -t $(acrName).azurecr.io/$(imageRepository):latest \
+                -f $(dockerfilePath) .
+
+              echo "Pushing Docker images..."
+              docker push $(acrName).azurecr.io/$(imageRepository):$(tag)
+              docker push $(acrName).azurecr.io/$(imageRepository):latest
+
+
+# ---------------- DEPLOY STAGE ----------------
+- stage: DeployProduction
+  displayName: "Deploy to Production"
+  dependsOn: Build
+  jobs:
+    - deployment: DeployProduction
+      displayName: "Deploy to App Service"
+      environment: "Production"
+      strategy:
+        runOnce:
+          deploy:
+            steps:
+
+              # --- NEW STEP: Configure Managed Identity Access ---
+              - task: AzureCLI@2
+                displayName: "Configure Managed Identity for ACR Access"
+                inputs:
+                  azureSubscription: "$(azureServiceConnection)"
+                  scriptType: "bash"
+                  scriptLocation: "inlineScript"
+                  inlineScript: |
+
+                    echo "Enabling Managed Identity on App Service..."
+                    PRINCIPAL_ID=$(az webapp identity assign \
+                      -g $(resourceGroupName) \
+                      -n $(webAppName) \
+                      --query principalId -o tsv)
+
+                    echo "Managed Identity Principal ID: $PRINCIPAL_ID"
+
+                    echo "Getting ACR Resource ID..."
+                    ACR_ID=$(az acr show \
+                      -n $(acrName) \
+                      --query id -o tsv)
+
+                    echo "Assigning AcrPull role to App Service..."
+                    az role assignment create \
+                      --assignee $PRINCIPAL_ID \
+                      --role AcrPull \
+                      --scope $ACR_ID || true
+
+                    echo "Ensure App Service uses Managed Identity for ACR..."
+                    az webapp config set \
+                      -g $(resourceGroupName) \
+                      -n $(webAppName) \
+                      --generic-configurations '{"acrUseManagedIdentityCreds": true}'
+
+                    echo "Restarting App Service..."
+                    az webapp restart -g $(resourceGroupName) -n $(webAppName)
+
+
+              # --- DEPLOY CONTAINER ---
+              - task: AzureWebAppContainer@1
+                displayName: "Deploy to App Service"
+                inputs:
+                  azureSubscription: "$(azureServiceConnection)"
+                  appName: "$(webAppName)"
+                  containers: "$(acrName).azurecr.io/$(imageRepository):$(tag)"

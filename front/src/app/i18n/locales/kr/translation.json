@@ -1,0 +1,81 @@
+{
+    "newChat": "새 채팅",
+    "chatWelcome": "데이터에 대해 무엇이든 물어보세요",
+    "all": "전체",
+    "today": "오늘",
+    "yesterday": "어제",
+    "previous": "이전",
+    "noResult": "검색 결과가 없습니다.",
+    "thinking": "생각..",
+    "typeYourMessage": "메시지를 입력하세요...",
+    "placeholder": {
+        "searchConver": "대화 검색",
+        "input": "데이터에 대해 궁금한 점을 무엇이든 물어보세요..."
+    },
+    "tooltip": {
+        "dataAgent": "데이터 에이전트 — 이 세션에서 채팅",
+        "reportAgent": "리포트 에이전트 — 이 세션의 리포트"
+    },
+    "chatNav": {
+        "newChat": "새 채팅",
+        "search": "검색",
+        "recentChat": "최근 채팅",
+        "rename": "이름 변경",
+        "delete": "삭제",
+        "chat": "채팅"
+    },
+    "powerBi": {
+        "welcome": "보고서에 대해 무엇이든 물어보세요",
+        "loading": "Power BI 리포트를 불러오는 중...",
+        "tab": {
+            "report": "리포트",
+            "chat": "채팅 에이전트"
+        }
+    },
+    "chatConversation": {
+        "copyAnswer": "답변 복사",
+        "copiedAnswer": "답변 내용이 복사되었습니다",
+        "copySQL": "SQL 복사",
+        "copiedSQL": "SQL이 복사되었습니다",
+        "viewFullReport": "전체 리포트 보기",
+        "saveToReport": "리포트에 저장",
+        "tab": {
+            "dataAgent": "데이터 에이전트",
+            "reportAgent": "리포트 에이전트"
+        }
+    },
+    "chatSource": {
+        "generatedSQL": "생성된 SQL",
+        "view": "분석 과정 및 데이터 보기"
+    },
+    "suggestion": {
+        "questions": "추천 질문",
+        "all": "모든 추천 질문 보기"
+    },
+    "reportAgent": {
+        "failedChart":"차트를 표시하는 데 사용할 수 있는 측정 항목이 없습니다.",
+        "search": "저장된 보고서 검색...",
+        "title": "리포트 에이전트",
+        "regenerate": "다시 생성",
+        "share": "공유하다",
+        "history": "역사",
+        "export": "내보내다",
+        "exportCSV": "CSV 내보내기",
+        "exportPNG": "PNG 내보내기",
+        "chart": "현재 채팅 (자동)",
+        "workspace": "저장됨 (워크스페이스)",
+        "version": {
+            "history": "버전 기록",
+            "description": "이 분석의 이전 버전을 확인하고 복원할 수 있습니다.",
+            "restore": "이 버전 복원",
+            "analysis": "분석",
+            "snapshot": "스냅샷",
+            "saved": "워크스페이스에 저장되었습니다."
+        },
+        "shared": {
+            "copied": "링크가 클립보드에 복사되었습니다",
+            "copy": "링크 복사",
+            "title": "이 분석 공유하기"
+        }
+    }
+}
