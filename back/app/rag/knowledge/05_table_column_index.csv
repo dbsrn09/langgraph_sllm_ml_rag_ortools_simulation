@@ -1,0 +1,50 @@
+table_name,column_name,column_role,data_kind,example_use
+SALES_ORDER_ITEMS,수주번호,key,id,수주 식별 및 조인 키
+SALES_ORDER_ITEMS,수주일,date,date,기간 필터
+SALES_ORDER_ITEMS,거래처,dimension,text,거래처별 집계
+SALES_ORDER_ITEMS,사용처,dimension,text,사용처별 집계
+SALES_ORDER_ITEMS,품번,dimension,text,품목별 집계
+SALES_ORDER_ITEMS,품명,dimension,text,품목명 표시
+SALES_ORDER_ITEMS,수량,measure,numeric_text,주문 수량 합계
+SALES_ORDER_ITEMS,매출금액,measure,numeric_text,매출 합계
+SALES_ORDER_ITEMS,원화판매금액계,measure,numeric_text,원화 매출 합계
+SALES_ORDER_ITEMS,비고,note,text,패턴 라벨링
+SALES_ORDER_ITEMS,진행사유,note,text,원인 라벨링
+SALES_ORDER_ITEMS,마스터메모,note,text,보조 근거
+SALES_ORDER_ITEMS,품목분류1,dimension,text,메이커/카테고리 분석
+SALES_ORDER_ITEMS,영업담당자,dimension,text,담당자별 분석
+INVOICE_ITEMS,거래명세서번호,key,id,송장 식별
+INVOICE_ITEMS,거래명세서일,date,date,출고 기간 필터
+INVOICE_ITEMS,수주번호,key,id,수주와 조인
+INVOICE_ITEMS,거래처,dimension,text,거래처별 매출 분석
+INVOICE_ITEMS,품번,dimension,text,품목별 매출 분석
+INVOICE_ITEMS,품명,dimension,text,품목명 표시
+INVOICE_ITEMS,수량,measure,numeric_text,출고 수량 합계
+INVOICE_ITEMS,매출수량,measure,numeric_text,매출 수량 합계
+INVOICE_ITEMS,매출금액계,measure,numeric_text,매출 합계
+INVOICE_ITEMS,원화판매금액계,measure,numeric_text,원화 매출 합계
+INVOICE_ITEMS,미매출수량,measure,numeric_text,미매출 수량 분석
+INVOICE_ITEMS,미매출금액,measure,numeric_text,미매출 금액 분석
+INVOICE_ITEMS,비고,note,text,출고 이슈 패턴 탐지
+INVOICE_ITEMS,마스터메모,note,text,보조 근거
+INVOICE_ITEMS,직납/택배,dimension,text,배송 유형 분석
+PURCHASE_REQUEST_ITEMS,구매요청번호,key,id,구매요청 식별
+PURCHASE_REQUEST_ITEMS,요청일,date,date,요청 기간 필터
+PURCHASE_REQUEST_ITEMS,요청납기일,date,date,납기 기준일
+PURCHASE_REQUEST_ITEMS,발주예정일,date,date,조달 일정 분석
+PURCHASE_REQUEST_ITEMS,수주번호,key,id,수주와 연결
+PURCHASE_REQUEST_ITEMS,거래처,dimension,text,거래처별 요청 분석
+PURCHASE_REQUEST_ITEMS,수주거래처,dimension,text,수주 거래처 분석
+PURCHASE_REQUEST_ITEMS,품번,dimension,text,품목별 요청 분석
+PURCHASE_REQUEST_ITEMS,품명,dimension,text,품목명 표시
+PURCHASE_REQUEST_ITEMS,구매요청수량,measure,numeric_text,요청 수량 합계
+PURCHASE_REQUEST_ITEMS,품의진행수량,measure,numeric_text,진행률 분석
+PURCHASE_REQUEST_ITEMS,발주진행수량,measure,numeric_text,진행률 분석
+PURCHASE_REQUEST_ITEMS,조달일수,measure,numeric_text,리드타임 리스크
+PURCHASE_REQUEST_ITEMS,진행상태,status,text,상태 분포
+PURCHASE_REQUEST_ITEMS,중단,status,text,중단 건수 분석
+PURCHASE_REQUEST_ITEMS,중단사유,note,text,중단 원인 분석
+PURCHASE_REQUEST_ITEMS,비고,note,text,요청 메모 패턴
+PURCHASE_REQUEST_ITEMS,비고2,note,text,추가 메모 패턴
+PURCHASE_REQUEST_ITEMS,Maker,dimension,text,메이커별 조달 분석
+PURCHASE_REQUEST_ITEMS,직배송,status,text,직배송 패턴 분석
